@@ -1,13 +1,14 @@
-package exercises
+package exercises_test
 
 import (
 	"testing"
-	"retrieve_alphabetic_order"
+
+	"github.com/jsosamolinati/dynamicDevsExercises/exercises"
 	"github.com/stretchr/testify/assert"
 )
 
 func test_retrieveOrderString(t *testing.T) {
-	result := retrieve_alphabetic_order.Execute("123a")
+	result := exercises.Exec("123a")
 
-   assert.Equal(result, "123b")
+	assert.Equal(t, result, "123b")
 }
