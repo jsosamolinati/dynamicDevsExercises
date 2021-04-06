@@ -1,4 +1,4 @@
-package exercises
+package DDATM_ES_0001
 
 import (
 	"strings"
