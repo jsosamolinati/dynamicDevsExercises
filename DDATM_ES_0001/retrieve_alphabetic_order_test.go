@@ -24,3 +24,9 @@ func Test_retrieveOrderStringWithZ(t *testing.T) {
 
 	assert.Equal(t, result, "123 a")
 }
+
+func Test_retrieveOrderStringWithNillParam(t *testing.T) {
+	result := DDATM_ES_0001.Exec("")
+
+	assert.Equal(t, result, "")
+}

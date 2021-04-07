@@ -16,6 +16,15 @@ func Test_retrieveOrderNumbers(t *testing.T) {
 	assert.Nil(t, err)
 }
 
+func Test_retrieveOrderNumbersWithError(t *testing.T) {
+	mockParam := []int{-5, 7, -3, 9}
+	mockError := "invalid number, you need input positive numbers"
+	result, err := DDATM_ES_0002.Exec(mockParam)
+
+	assert.Nil(t, result)
+	assert.Error(t, err, mockError)
+}
+
 func Test_retrieveOrderNumbersAlternative(t *testing.T) {
 	mockParam := []int{5, 7, 3, 9}
 	excpected := []int{3, 4, 5, 6, 7, 8, 9}
@@ -23,4 +32,13 @@ func Test_retrieveOrderNumbersAlternative(t *testing.T) {
 
 	assert.Equal(t, result, excpected)
 	assert.Nil(t, err)
+}
+
+func Test_retrieveOrderNumbersAlternativeWithError(t *testing.T) {
+	mockParam := []int{-5, 7, -3, 9}
+	mockError := "invalid number, you need input positive numbers"
+	result, err := DDATM_ES_0002.ExecAlternative(mockParam)
+
+	assert.Nil(t, result)
+	assert.Error(t, err, mockError)
 }

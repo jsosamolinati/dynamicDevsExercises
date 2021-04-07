@@ -4,38 +4,38 @@ import (
 	"strings"
 )
 
-func Exec(disorder string) string {
+func Exec(sentence string) string {
 	alphabet := []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "ñ", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
-	var disorderArrray []string
-	var orderArray []string
+	var sentenceSeparate []string
+	var sentenceNeat []string
 
-	for i := 0; i < len(disorder); i++ {
-		disorderArrray = append(disorderArrray, disorder[i:i+1])
+	for i := 0; i < len(sentence); i++ {
+		sentenceSeparate = append(sentenceSeparate, sentence[i:i+1])
 	}
 
-	for _, compareDisorder := range disorderArrray {
-		orderArray = append(orderArray, returnNumberAlphabet(compareDisorder, alphabet))
+	for _, compareDisorder := range sentenceSeparate {
+		sentenceNeat = append(sentenceNeat, returnNumberAlphabet(compareDisorder, alphabet))
 	}
 
-	orderString := strings.Join(orderArray, "")
+	orderSentence := strings.Join(sentenceNeat, "")
 
-	return orderString
+	return orderSentence
 }
 
 func returnNumberAlphabet(compare string, alphabet []string) string {
 	for j, alalphabetCompare := range alphabet {
 		if strings.ToLower(compare) == alalphabetCompare {
 			if strings.ToLower(compare) == alphabet[26] {
-				return validateLetter(compare, alphabet[0])
+				return validateCapitalLetter(compare, alphabet[0])
 			}
-			return validateLetter(compare, alphabet[j+1])
+			return validateCapitalLetter(compare, alphabet[j+1])
 		}
 	}
 
 	return compare
 }
 
-func validateLetter(compare ,alphabetAssert string) string {
+func validateCapitalLetter(compare ,alphabetAssert string) string {
 	compareUpper := strings.ToUpper(compare)
 
 	if compareUpper == compare {

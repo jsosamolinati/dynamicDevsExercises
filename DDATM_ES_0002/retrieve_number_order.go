@@ -7,6 +7,7 @@ import (
 func Exec(numbers []int) ([]int, error) {
 	obtainMax := 0
 	var fillNumbers []int
+
 	for _, number := range numbers {
 		if number < 0 {
 			return nil, errors.New("invalid number, you need input positive numbers")
@@ -27,6 +28,7 @@ func ExecAlternative(numbers []int) ([]int, error) {
 	obtainMax := 0
 	obtainMin := 0
 	var fillNumbers []int
+	
 	for _, number := range numbers {
 		if number < 0 {
 			return nil, errors.New("invalid number, you need input positive numbers")
